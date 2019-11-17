@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<database schema="data.db">
+		<table name="tb_category_table">
+			<sql operator="create">CREATE TABLE [tb_category_table]([category] VARCHAR(20) UNIQUE, [table_name] VARCHAR(20) UNIQUE);</sql>
+			<sql operator="insert">INSERT INTO [tb_category_table] VALUES (?, ?);</sql>
+			<sql operator="select">SELECT * FROM [tb_category_table] ;</sql>
+			<sql operator="update">UPDATE [tb_category_table] SET table_name = ? WHERE category = ?;</sql>
+		</table>
+		<table name="tb_category_">
+			<sql operator="create">CREATE TABLE [tb_category_]([title] VARCHAR(30) UNIQUE, [date] VARCHAR(25), [category] VARCHAR(15), [link_path] VARCHAR(260), [url] VARCHAR(260)); </sql>
+			<sql operator="insert">INSERT INTO [tb_category_] VALUES (?, ?, ?, ?, ?);</sql>
+			<sql operator="select">SELECT * FROM [tb_category_];</sql>
+			<sql operator="update">UPDATE [tb_category_] SET date = ?, category = ?, link_path = ?, url = ? WHERE title = ?;</sql>
+			<sql operator="select_count">SELECT count(*) FROM [tb_category_];</sql>
+		</table>
+		<!-- <table name="tb_home">
+			<sql operator="create">CREATE TABLE [tb_home]([item] VARCHAR(256) NOT NULL UNIQUE);</sql>
+			<sql operator="insert">INSERT INTO [tb_home] VALUES (?);</sql>
+			<sql operator="select">SELECT * FROM [tb_home];</sql>
+		</table> -->
+		<!-- <table name="tb_article">
+			<sql operator="create">CREATE TABLE [tb_article]([author] VARCHAR(20),[title] VARCHAR(30) UNIQUE,[category] VARCHAR(15),[date] VARCHAR(25),[path] VARCHAR(260));</sql>
+			<sql operator="insert">INSERT INTO tb_article VALUES (?, ?, ?, ?, ?);</sql>
+			<sql operator="select">SELECT * FROM tb_article;</sql>
+			<sql operator="update">UPDATE tb_article SET author = ?, category = ?, date = ?, path = ? WHERE title = ?;</sql>
+			<sql operator="select_category">SELECT category, count(category) FROM [tb_article] GROUP BY category;</sql>
+		</table> -->
+	</database>
+</config>
