@@ -13,8 +13,14 @@
 label:指令助记符 参数1， 参数2， 参数3  
 
 #### 保护模式、实地址模式和虚拟8086模式的指令格式：
-![Image 指令格式](img/Figure2-1.PNG)
+![Image 指令格式](img/FormatOfInstructions.png)
 -----------------------------------------------
+
+E9 00000000 jmp 地址 直接跳转指令
+E9 机器码 = 要跳转的目标地址 - (E9当前指令地址 + 5)(即下一行指令地址)
+E8 00000000 call 地址 函数调用
+E8 机器码 = 要跳转的目标地址 - (E8当前指令地址 + 5)(即下一行指令地址)
+FF 机器码 call 地址变量 间接函数调用
 
 | 指令 | 说明 | Operation | Flags Affected |
 |:-----|:----|:---------|:-------------|
@@ -24,7 +30,7 @@ label:指令助记符 参数1， 参数2， 参数3
 |TEST  |Logical Compare（逻辑比较，功能跟and一样, 但它不修改运算数, 只修改标志寄存器）|TEMP ← SRC1 AND SRC2;SF ← MSB(TEMP);IF TEMP=0THEN ZF ← 1;ELSE ZF ← 0;FI:PF ← BitwiseXNOR(TEMP[0:7]);CF ← 0;OF ← 0;(* AF is undefined *)|The OF and CF flags are set to 0. The SF, ZF, and PF flags are set according to the result (see the “Operation” section above). The state of the AF flag is undefined.|
 
 MOVS指令：移动数据，内存 - 内存
-![Image movs](img/movs.PNG)
+![Image movs](img/movs.png)
 
 | 指令格式 | 简写 |机器码格式| 说明 |
 |:------- | :----|:--------:| :--- |
@@ -34,13 +40,14 @@ MOVS指令：移动数据，内存 - 内存
 |MOVS QWORD PTR ES:[RDI], QWORD PTR DS:[RSI] |MOVSQ|48A5|将RSI寄存器地址的值复制8个字节到RDI寄存器指向的地址，同时ESI,EDI自增或自减8个字节，方向由EFLAGS或RFLAGS寄存器DF位（方向标志位）决定|
 
 STOS指令：将AL or AX or EAX or RAX的值存储到[EDI] or [RDI]指定的地址单元,EDI or RDI 值自增or自减 [1 2 4 8]
-![Image stos](img/stos.PNG)
+![Image stos](img/stos.png)
 
 REP指令：按计数器（ECX or RCX）中指定的次数重复执行指令
-![Image rep](img/rep.PNG)
+![Image rep](img/rep.png)
 
-JCC指令：条件跳转指令
+JCC指令：条件跳转指令  
 ![Image rep](img/JCC.png)
+
 ------------------------------------------------------------
 [返回上级目录](./../../../../categories/assembly/README.md)  |
 [返回首页](./../../../../README.md)
