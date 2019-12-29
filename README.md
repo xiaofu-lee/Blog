@@ -6,5 +6,5 @@
    - [**Windows核心编程 ( 12 )**](categories/Windows核心编程/README.md)  
    - [**汇编 ( 1 )**](categories/汇编/README.md)  
    - [**计算机组成原理 ( 1 )**](categories/计算机组成原理/README.md)  
-   - [**其他 ( 5 )**](categories/其他/README.md)  
+   - [**其他 ( 6 )**](categories/其他/README.md)  
    - [**数据结构与算法 ( 11 )**](categories/数据结构与算法/README.md)  
